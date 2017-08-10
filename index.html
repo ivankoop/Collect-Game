@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>collect game</title>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+    <script type="text/javascript" src="states/main.js"></script>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var game = new Phaser.Game(800, 600, Phaser.AUTO, 'collect-game', { preload: preload, create: create, update: update });
+
+      game.state.add("main",main);
+
+      function preload(){
+        console.log('preload del game');
+        game.load.image('player', 'assets/abuelita3.png');
+        game.load.image('item', 'assets/item_sprite.png');
+        game.load.audio('collect', 'assets/sounds/collect.wav');
+        game.load.image('background', 'assets/background.jpg');
+        game.load.image('ground', 'assets/ground.png');
+        game.load.image('coin', 'assets/coin.png');
+        game.load.image('money', 'assets/money.png');
+        game.load.image('speaker', 'assets/speaker.png');
+        game.load.image('desalojo', 'assets/desalojo.png');
+        game.load.image('asadito', 'assets/asadito.png');
+        game.load.image('caña', 'assets/caña.png');
+        game.load.audio('asadito_audio', 'assets/sounds/asadito_audio.mp3');
+  
+        game.load.atlasJSONHash('abuela', 'assets/abuelita_anim.png', 'assets/abuelita_anim.json');
+   
+      }
+
+      function create(){
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.physics.arcade.gravity.y = 100;
+        game.state.start("main");
+      }
+
+      function update(){
+        console.log('update del game');
+      }
+
+    </script>
+
+  </body>
+</html>
